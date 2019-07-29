@@ -1,9 +1,11 @@
+#dropzone {
+    border: 3px dashed grey;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-#youtube {
-    height: 4px;
-    background-color: red;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: 0.3s ease;
+input {
+    display: none;
 }
