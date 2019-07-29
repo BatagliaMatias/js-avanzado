@@ -28,6 +28,7 @@ dropzone.addEventListener("drop",e=>{
 })
 
 function procesarArchivos(archivos){
+    
     console.log(archivos)
     
     let data = new FormData
@@ -46,6 +47,11 @@ function procesarArchivos(archivos){
         if (xhr.status == 200) {
             console.log("Termino el pedido")
         }
+    })
+    
+    xhr.upload.addEventListener("progress",e=>{
+        let porcentaje = e.loaded * 100 / e.total
+        console.log(porcentaje)
     })
     //xhr.setRequestHeader("content-type","multipart/form-data")
     //string : application/x-www-form-urlencoded
