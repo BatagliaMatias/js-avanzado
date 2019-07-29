@@ -1,38 +1,65 @@
-let links = document.querySelectorAll(".links")
-let main = document.querySelector("main")
+let xhr = new XMLHttpRequest
+//"text" - "json" - "blob" - "arraybuffer"
+xhr.responseType = "json"
+xhr.open("GET","https://jsonplaceholder.typicode.com/users")
+xhr.addEventListener("load",()=>{
+    if (xhr.status == 200) {
+        console.log(typeof xhr.response)
+        //let respuesta = JSON.parse(xhr.response)
+        console.table(xhr.response)
+    }
+})
+xhr.send()
 
-links.forEach(link=>{
-    link.addEventListener("click",e=>{
-        e.preventDefault()
-        //URI
-        //location.hash = e.target.innerText
-        history.pushState("","",e.target.innerText)
-        ajax("get",e.target.href,render)
-    })
+//Literal : value - writable(true) - configurable(true) - enumerable(true) 
+let obj = {x:1,y:2}
+
+let obj_restrict = {}
+
+Object.defineProperty(obj_restrict,"x",{
+    value : 1,
+    writable : true,
+    configurable : true,
+    enumerable : true
 })
 
-
-function ajax(metodo,url,callback){
-    let xhr = new XMLHttpRequest
-    xhr.open(metodo,url)
-    xhr.addEventListener("load",()=>{
-        if (xhr.status == 200) {
-            callback(xhr.response)
-        }
-    })
-    xhr.send()
-    return xhr
-}
-
-function render(data){
-    main.innerHTML = data
-}
-
-
-//popstate : se dispara cuando el usuario hace click en los botones de control de historial(atras o adelante), alt+<-/-> , history.{back|forward|go}()
-window.addEventListener("popstate",()=>{
-    console.log("Cambio El historial")
-    //let url = location.pathname.split("/")[1] + ".html"
-    let url = location.pathname.substr(1) + ".html"
-    ajax("get",url,render)
+Object.defineProperty(obj_restrict,"y",{
+    value : 1,
+    writable : true,
+    configurable : true,
+    enumerable : false
 })
+
+//Object.key(Object) => Array - Nos devuelve un array con todos los indices del objeto
+/* 
+Object.keys(obj).forEach((llave,valor)=>{
+    console.log(llave,valor)
+}) 
+*/
+
+//for...in : Nos permite iterar sobre las propiedades de un objeto dinamicas y/o que hayan sido configuradas como iterables. Este bucle tambien puede iterar sobre propiedades dinamicas dentro de la cadena de prototipos 
+/* 
+
+for(let prop in obj){
+    console.log(prop)
+} 
+
+*/
+
+/*
+typeof ""               "string"
+typeof 1                "number"
+typeof true             "boolean"
+typeof function foo(){} "function"
+typeof undefined        "undefined"
+
+typeof null             "object"
+
+typeof []               "object"
+typeof {}               "object"
+
+
+Array.isArray(Any) => Boolean - determina si un valor es un array o no
+
+*/
+
