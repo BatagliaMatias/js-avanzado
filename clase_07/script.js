@@ -1,3 +1,36 @@
+"use strict"
+
+//Errores Silenciosos
+let no_din = Object.create(null,{
+    a : {
+        value : true
+    }
+})
+
+//delete no_din.a ;
+//no_din.a = "Nuevo Valor" ;
+
+let obj = {
+    a : 1,
+    a : 2   
+}
+
+let aa 
+aa = 50
+//console.log(a)
+
+//function foo(a,a,c){
+function foo(a,b,c){
+    //console.log(a,b,c)
+    console.log(a,c)
+}
+
+//foo(10,40)
+
+
+
+
+
 //https://github.com/rus0000/jsinheritance
 //Modelo de prototipos 
 let test = true;
@@ -49,7 +82,7 @@ let test = true;
 
     //$().ajax()
     //window.NAMESPACE = valor
-})()
+})();
 //Patron Revelador
 /* 
 (function(){
@@ -112,3 +145,74 @@ Object.freeze(obj) : Object.seal() + configurable : false
  * console.log(obj._nombre)
  * 
  */
+
+ //Modelo ES6
+
+let uno = new persona("Uno","test")
+
+function persona(nombre,apellido){
+    this.nombre = nombre
+    this.apellido = apellido
+    persona.prototype.nueva = function(){
+
+    }
+}
+//persona.prototype.nueva = true
+//persona.test = true
+
+//let dos = new Persona("Uno","test")
+
+class Persona {
+
+    constructor(nombre,apellido){
+        this.nombre = nombre
+        this.apellido = apellido
+    }
+
+    nueva(){
+        console.log("Nueva Propiedad")
+    }
+
+    static test = true
+
+}
+
+//Persona.test = true
+
+let dos = new Persona("Uno","test")
+
+//Built-in Objects : String - Number - Boolean - Function - Object - Array - Date - Math - Error (TypeError - SyntaxError , etc... ) - JSON 
+/* 
+function Empleado(){
+    //Persona.call(this,...argms)
+}
+Empleado.prototype = Object.create(Persona.prototype)
+Empleado.prototype.constructor = Empleado 
+*/
+
+
+class Empleado extends Persona {
+    
+    constructor(sueldo,nombre,apellido){
+        super(nombre,apellido)
+        this.sueldo = sueldo
+    }
+
+}
+
+let tres = new Empleado(1,"Tres","Hijo")
+
+Object.getOwnPropertyDescriptor(Persona.prototype,"nueva")
+
+
+//Uso Estricto : Es la manera para unificar algunas implementaciones del lenguaje. Se activa usando la declaración de "use strict"
+
+
+//window 
+//(function(window,document){
+
+//console.log(w.innerHeight)
+//w.a = true
+
+//})(window,document)
+
