@@ -220,7 +220,7 @@ function Empleado(sueldo,nombre,apellido){
 
 //Herencia
 //SubClass.prototype = Object.create(SuperClass.prototype)
-//[SubClass.prototype.constructor = SubClass]
+//[SubClass.prototype.constructor = SubClass
 Empleado.prototype = Object.create(Persona.prototype)
 Empleado.prototype.constructor = Empleado
 
