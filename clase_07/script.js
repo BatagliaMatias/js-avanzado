@@ -173,6 +173,12 @@ class Persona {
         console.log("Nueva Propiedad")
     }
 
+    /* 
+    nueva = () => {
+
+    } 
+    */
+
     static test = true
 
 }
@@ -215,4 +221,21 @@ Object.getOwnPropertyDescriptor(Persona.prototype,"nueva")
 //w.a = true
 
 //})(window,document)
+
+//Node.js = Es un entorno de programación que puede ejecutar JS y nos da una API de Módulos Nativos 
+//NPM : Node Package Manager / package.json
+//npm init : Inicia un cuestionario 
+//npm init -y : Inicia un archivo de configuración NPM sin cuestionario
+//npm {i|install} <tipo> <paquete> : 
+/**
+ * TIPOS : 
+ * 
+ * -g               : Globales
+ * -S|--save        : Locales de Producción
+ * -D|--save-dev    : Locales de Desarrollo
+ * 
+ */
+
+//npm i -g json-server : Me crea un servidor RESTful usando un archivo .json
+
 
