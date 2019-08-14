@@ -1,0 +1,67 @@
+COMMONJS
+
+const modulo = require("modulo.js")
+const mi_variable = require("modulo.js").mi_variable
+
+module.exports = { mi_variable : "valor" }
+module.exports.mi_variable = "valor"
+exports.mi_variable = "valor"
+//exports = NO SE PUEDE
+
+ES6
+import mi_variable from "modulo.js"
+import {mi_variable} from "modulo.js"
+export let mi_variable = "valor" // Multiples veces
+export default "valor"
+//export default "valor" // Da Error
+
+
+npm install --save-dev webpack webpack-cli html-webpack-plugin css-loader style-loader @babel/core @babel/preset-env babel-loader webpack-dev-server
+
+npm i -D webpack webpack-cli html-webpack-plugin css-loader style-loader @babel/core @babel/preset-env babel-loader webpack-dev-server
+
+
+
+
+
+NPM 
+config : package.json
+
+WEBPACK : Bundler 
+config : webpack.config.js
+
+entry : es una configuracion de webpack para determinar cual es/son el/los archivo/s que sirven de punto de entrada a la compilación. Puede ser un String, un Array de strings o un Object. Default : 
+
+    entry : "./src/index.js"
+
+output : es una configuracion de webpack que determina el lugar de salida de la compilación. Es un Object con las propiedades : path y filename como directorio y nombre de archivo respectivamente. Default : 
+
+    output : {
+        filename : "main.js",
+        path : __dirname + "/dist"
+    }
+
+
+Webpack tiene dos formas de poder compilar el resto de las extensiones : loaders - plugins 
+
+loaders : Es la manera de habilitar una nueva sintaxis de compilación en webpack. 
+
+plugin : Agregan funcionalidades a webpack
+
+
+
+BABEL : Transpilador 
+
+dep : babel babel-core babel-preset-env 
+dep : @babel/core @babel/preset-env babel-loader
+config : .babelrc / package.json => babel : {}
+
+
+
+npm i -D 
+
+https://webpack.js.org/configuration/devtool/
+https://webpack.js.org/guides/code-splitting/
+
+> npm i -g json-server 
+> json-server --watch db.json 
