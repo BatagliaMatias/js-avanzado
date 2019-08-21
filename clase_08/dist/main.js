@@ -113,16 +113,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 //require("./estilos.css")
 
 
+var foo = function foo(props) {};
+
+var Componente = React.createElement("foo", {
+  props: 1
+});
+/**
+ * 
+ * function foo(){}
+ * 
+ * foo({x:1})
+ * 
+ * 
+ * <foo x={1} />
+ * 
+ * 
+ */
+
 var Persona = function Persona() {
   _classCallCheck(this, Persona);
-};
+}; //let foo = () => {}
 
-var foo = function foo() {};
 
 var arr = [1, 2, 3];
 var uno = arr[0],
     dos = arr[1],
     elResto = arr.slice(2);
+alert("Hola Mundo");
 
 /***/ })
 

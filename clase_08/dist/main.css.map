@@ -1,1 +1,1 @@
-{"version":3,"sources":["webpack:///./src/estilos.css"],"names":[],"mappings":"AAAA,GAAG,YAAY;AACf,MAAM,uBAAuB","file":"main.css","sourcesContent":["* { padding: 0; margin: 0;}\r\nbody { background-color: red; }\r\n"],"sourceRoot":""}
+{"version":3,"sources":["webpack:///./src/estilos.css"],"names":[],"mappings":"AAAA,GAAG,YAAY;AACf,MAAM,qCAAqC","file":"main.css","sourcesContent":["* { padding: 0; margin: 0;}\r\nbody { background-color: rgba(0,255,0,0.5); }\r\n"],"sourceRoot":""}

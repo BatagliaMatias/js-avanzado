@@ -1,0 +1,24 @@
+npm i -S react react-dom
+
+1 - La variable React siempre tiene que estar en scope
+2 - Los componentes son la expresion minima de UI y son funciones en mayusucula y tienen retorno de tipo : String - Nodo - React.Component
+
+    let App = () => { return "Hola" }
+
+    function App() { return "Hola" }
+
+    class App {}
+    
+
+3- Para mostrar un componente se usa JSX
+4- Cada componente puede tener su propio estado(state) o recibir parametros(props) y si estos cambian se vuelve a ejecutar el metodo render. Los unicos componentes que tienen estado son los de tipo Class y solo se puede modificar por el mismo componente y todos los componentes reciben props PERO son de read-only
+5 - Los props pueden ser de tipo : String - Boolean(default) - JS Expression y se escriben en formato JSX : 
+
+    Foo({
+        x:"hola",
+        y:true,
+        z:()=>{}
+    })
+
+    <Foo  x="Hola" y z={()=>{}} />
+
