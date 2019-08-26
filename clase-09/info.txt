@@ -22,3 +22,32 @@ npm i -S react react-dom
 
     <Foo  x="Hola" y z={()=>{}} />
 
+
+
+React Router Dom
+
+BrowserRouter : History API 
+HashRouter : location.hash
+MemoryRouter : para navegadores sin History ni hash
+StaticRouter : SSR - Server Side Rendering 
+
+Cualquier componente de la libreria react-router-dom NO SE PUEDE USAR si no es hijo de algun Router(los anteriores)
+
+
+cada Route puede asociar un componente de vista con los props :
+
+
+component : Componente no en JSX . Al copmonente ya le llegan los props history, location y match
+
+children : fn() y adentro si puede ir JSX. A estos no le llegan directamente. 
+
+render  : fn() y adentro si puede ir JSX. A estos no le llegan directamente. 
+
+
+CONTEXT API : 
+
+state / store : Es una funcion que nos da como retorno un Provider y un Consumer. 
+
+Provider : Es un componente HOC que puede compartir estado a cualquier Consumer hijo en cualquier nivel de jerarquia.
+
+Consumer : Es un componente HOC. Se usa como hijo de un Provider y puede acceder a cualquier estado del Provider en cualquier nivel de jerarquia. 

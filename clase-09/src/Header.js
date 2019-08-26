@@ -1,15 +1,23 @@
 import React from "react"
+import {NavLink} from "react-router-dom"
+import {Consumer} from "./api/contexto"
 
 class Header extends React.Component {
     render(){
-        let {links} = this.props
         return(
             <header>
-                <h1>React</h1>
+                <NavLink to="/" exact>
+                    <h1>React</h1>
+                </NavLink>
                 <nav>
-                    {links.map((link,i)=>
-                        <a href={`/${link}`} key={i}>{link}</a>
-                    )}
+                    <Consumer>
+                    {contexto=>{
+                        let {links} = contexto
+                        return links.map((link,i)=>
+                            <NavLink to={`/${link}`} key={i}>{link}</NavLink>
+                        ) 
+                    }}
+                    </Consumer>
                 </nav>
             </header>
         )
