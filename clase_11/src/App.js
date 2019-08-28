@@ -82,16 +82,10 @@ class App extends Component {
     }
 
     render(){
-        
-        let {contador,mostrar,nombre,apellido,usuarios,fetched} = this.state
-        let {handleMostrar,handleSubmit,aumentarContador,handleChange,borrarUsuario,seleccionarUsuario/*, pedirUsuarios */} = this
-
         return (
             <Provider value={this.state}>
                 <Header/>
-                
-                <Main handleChange={handleChange} handleMostrar={handleMostrar} handleSubmit={handleSubmit} contador={contador} mostrar={mostrar} nombre={nombre} apellido={apellido} aumentarContador={aumentarContador} usuarios={usuarios} borrarUsuario={borrarUsuario} seleccionarUsuario={seleccionarUsuario} /* pedirUsuarios={pedirUsuarios} */ fetched={fetched}/>
-                
+                <Main/>
                 <Footer/>
             </Provider>
         )      

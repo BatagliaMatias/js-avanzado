@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
+import { Consumer } from './api/contexto'
 
-//Uplifting de estado
-export default class Contador extends Component {
+class Contador extends Component {
     render() {
-        let {contador,aumentar} = this.props
         return (
             <div>
-                <p>Contador : {contador}</p>
-                <button  onClick={aumentar}>+</button>
+                <Consumer>
+                {({contador,aumentarContador})=>{
+                    return(
+                        <>
+                        <p>Contador : {contador}</p>
+                        <button  onClick={aumentarContador}>+</button>
+                        </>
+                    )
+                }}
+                </Consumer>
             </div>
         )
     }
 }
+
+export default  Contador
