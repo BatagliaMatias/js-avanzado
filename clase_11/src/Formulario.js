@@ -8,22 +8,12 @@ class Formulario extends React.Component {
         return(
             <>
             {mostrar
-            ?<form onSubmit={
-            /* 
-            Esta es para la segunda forma del submit
-
-            e=>{
-                e.preventDefault()
-                handleSubmit(this.refs.nombre,this.refs.apellido)
-            } 
-            */
-           handleSubmit
-           }>               
+            ?<form onSubmit={handleSubmit}>               
                 <div>
-                    <input onChange={handleChange} type="text" placeholder="Nombre" id="nombre" value={nombre}/*ref="nombre"*//>
+                    <input onChange={handleChange} type="text" placeholder="Nombre" id="nombre" value={nombre}/>
                 </div>
                 <div>
-                    <input onChange={handleChange} type="text" placeholder="Apellido" id="apellido" value={apellido}/*ref="apellido"*//>
+                    <input onChange={handleChange} type="text" placeholder="Apellido" id="apellido" value={apellido}/>
                 </div>
                 <button>Agregar</button>
             </form>

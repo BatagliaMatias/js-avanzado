@@ -3,11 +3,11 @@ import Home from "./paginas/Home.js"
 import Perfil from "./paginas/Perfil.js"
 import Portfolio from "./paginas/Portfolio.js"
 import Contacto from "./paginas/Contacto.js"
-import {Switch,Route} from "react-router-dom"
+import {Switch,Route,Redirect} from "react-router-dom"
 
-export default class Main extends Component {
+class Main extends Component {
     render() {
-        let {mostrar,contador,nombre,apellido,handleChange,handleMostrar,handleSubmit,aumentarContador} = this.props
+        let {mostrar,contador,nombre,apellido,handleChange,handleMostrar,handleSubmit,aumentarContador,usuarios,borrarUsuario,seleccionarUsuario} = this.props
         return (
             <main>
                 <Switch>
@@ -19,10 +19,28 @@ export default class Main extends Component {
                     <Route path="/portfolio" component={Portfolio}/>
 
                     <Route path="/contacto" children={props=>
-                        <Contacto {...props} mostrar={mostrar} apellido={apellido} nombre={nombre} handleChange={handleChange} handleSubmit={handleSubmit} handleMostrar={handleMostrar}/>
+                        <Contacto {...props} mostrar={mostrar} apellido={apellido} nombre={nombre} handleChange={handleChange} handleSubmit={handleSubmit} handleMostrar={handleMostrar} usuarios={usuarios} borrarUsuario={borrarUsuario} seleccionarUsuario={seleccionarUsuario}/>
                     }/>
+
+                    {/* <RutaPrivada path="/portfolio" component={Portfolio} /> */}
                 </Switch>
             </main>
         )
     }
 }
+
+/* 
+let RutaPrivada = props => {
+    let isLogged = document.cookie.slice(0,...)
+    let isLogged = localStorage.getItem("token")
+    if(isLogged){
+        return <Route {...props}/>
+    }else{
+        return <Redirect path="/"/>
+    }
+}
+
+let RutaPublica = () => {} 
+*/
+
+export default Main

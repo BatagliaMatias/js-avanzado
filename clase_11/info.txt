@@ -51,3 +51,27 @@ state / store : Es una funcion que nos da como retorno un Provider y un Consumer
 Provider : Es un componente HOC que puede compartir estado a cualquier Consumer hijo en cualquier nivel de jerarquia.
 
 Consumer : Es un componente HOC. Se usa como hijo de un Provider y puede acceder a cualquier estado del Provider en cualquier nivel de jerarquia. 
+
+
+
+function primera(callback){
+    let resultado = 1 + 1;
+    callback()
+}
+
+function segunda(){
+    for(i=0; i<1000000; i++){
+        continue;
+    }
+}
+
+
+primera(segunda)
+primera(async ()=>{})
+
+
+http://vulcanjs.org/
+https://nestjs.com/
+https://nextjs.org/
+https://fusionjs.com/
+https://www.meteor.com/
