@@ -35,19 +35,7 @@ class App extends Component {
 
     handleSubmit(e){
         e.preventDefault()
-/* 
-        let copia = this.state.usuarios.slice(0)
-        copia.push({ nombre : this.state.nombre , apellido : this.state.apellido })
-        this.setState({ usuarios : copia })
- */
-        this.setState({ 
-            usuarios : [ 
-                ...this.state.usuarios ,
-                { nombre : this.state.nombre , apellido : this.state.apellido }
-            ] ,
-            nombre : "" ,
-            apellido : ""
-        })
+        this.setState({ usuarios : [ ...this.state.usuarios ,{ nombre : this.state.nombre , apellido : this.state.apellido }] ,nombre : "" ,apellido : ""})
     }
 
     handleChange(e){
@@ -55,23 +43,11 @@ class App extends Component {
     }
 
     borrarUsuario(indice){
-        console.log("Borrar Usuario",indice)
-        console.log(this.state.usuarios[indice])
-        this.setState({
-            usuarios : [
-                ...this.state.usuarios.slice(0,indice),
-                ...this.state.usuarios.slice(indice+1)
-            ]
-        })
+        this.setState({ usuarios : [...this.state.usuarios.slice(0,indice),...this.state.usuarios.slice(indice+1)]})
     }
 
     seleccionarUsuario(indice){
-        console.log("Seleccionar Usuario",indice)
-        console.log(this.state.usuarios[indice])
-        let usuario = this.state.usuarios[indice]
-        let nombre = this.state.usuarios[indice].nombre
-        let apellido = this.state.usuarios[indice].apellido
-        this.setState({ nombre , apellido , usuario })
+        this.setState({ nombre : this.state.usuarios[indice].nombre , apellido : this.state.usuarios[indice].apellido , usuario : this.state.usuarios[indice] })
     }
 
     render(){
