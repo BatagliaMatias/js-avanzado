@@ -7,7 +7,7 @@ import {Switch,Route,Redirect} from "react-router-dom"
 
 class Main extends Component {
     render() {
-        let {mostrar,contador,nombre,apellido,handleChange,handleMostrar,handleSubmit,aumentarContador,usuarios,borrarUsuario,seleccionarUsuario} = this.props
+        let {mostrar,contador,nombre,apellido,handleChange,handleMostrar,handleSubmit,aumentarContador,usuarios,borrarUsuario,seleccionarUsuario/* ,pedirUsuarios */,fetched} = this.props
         return (
             <main>
                 <Switch>
@@ -19,7 +19,7 @@ class Main extends Component {
                     <Route path="/portfolio" component={Portfolio}/>
 
                     <Route path="/contacto" children={props=>
-                        <Contacto {...props} mostrar={mostrar} apellido={apellido} nombre={nombre} handleChange={handleChange} handleSubmit={handleSubmit} handleMostrar={handleMostrar} usuarios={usuarios} borrarUsuario={borrarUsuario} seleccionarUsuario={seleccionarUsuario}/>
+                        <Contacto {...props} mostrar={mostrar} apellido={apellido} nombre={nombre} handleChange={handleChange} handleSubmit={handleSubmit} handleMostrar={handleMostrar} usuarios={usuarios} borrarUsuario={borrarUsuario} seleccionarUsuario={seleccionarUsuario} /* pedirUsuarios={pedirUsuarios} */ fetched={fetched}/>
                     }/>
 
                     {/* <RutaPrivada path="/portfolio" component={Portfolio} /> */}

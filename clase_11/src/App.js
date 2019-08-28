@@ -15,14 +15,45 @@ class App extends Component {
             nombre : "",
             apellido : "",
             usuarios : [],
-            usuario : false
+            usuario : false,
+            error : false,
+            fetching : false,
+            fetched : false,
+            changed : false,
+            aumentarContador : this.aumentarContador.bind(this),
+            handleMostrar : this.handleMostrar.bind(this),
+            handleSubmit : this.handleSubmit.bind(this),
+            handleChange : this.handleChange.bind(this),
+            borrarUsuario : this.borrarUsuario.bind(this),
+            seleccionarUsuario : this.seleccionarUsuario.bind(this),
+            pedirUsuarios : this.pedirUsuarios.bind(this)
         }
-        this.aumentarContador = this.aumentarContador.bind(this)
-        this.handleMostrar = this.handleMostrar.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-        this.borrarUsuario = this.borrarUsuario.bind(this)
-        this.seleccionarUsuario = this.seleccionarUsuario.bind(this)
+    }
+
+    pedirUsuarios(){
+        
+        this.setState({fetching : true})
+
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then(res=>res.json())
+        .then(res=>{
+            this.setState({
+                usuarios : [
+                    ...this.state.usuarios,
+                    ...res.map(usuario=>({
+                        nombre:usuario.name.split(" ")[0],
+                        apellido:usuario.name.split(" ")[1]
+                    }))
+                ],
+                fetching : false,
+                fetched : true
+            })
+        })
+        .catch(err=>{
+            this.setState({
+                error : err
+            })
+        })
     }
 
     aumentarContador(){
@@ -52,14 +83,14 @@ class App extends Component {
 
     render(){
         
-        let {links,contador,mostrar,nombre,apellido,usuarios} = this.state
-        let {handleMostrar,handleSubmit,aumentarContador,handleChange,borrarUsuario,seleccionarUsuario} = this
+        let {contador,mostrar,nombre,apellido,usuarios,fetched} = this.state
+        let {handleMostrar,handleSubmit,aumentarContador,handleChange,borrarUsuario,seleccionarUsuario/*, pedirUsuarios */} = this
 
         return (
             <Provider value={this.state}>
                 <Header/>
                 
-                <Main handleChange={handleChange} handleMostrar={handleMostrar} handleSubmit={handleSubmit} contador={contador} mostrar={mostrar} nombre={nombre} apellido={apellido} aumentarContador={aumentarContador} usuarios={usuarios} borrarUsuario={borrarUsuario} seleccionarUsuario={seleccionarUsuario}/>
+                <Main handleChange={handleChange} handleMostrar={handleMostrar} handleSubmit={handleSubmit} contador={contador} mostrar={mostrar} nombre={nombre} apellido={apellido} aumentarContador={aumentarContador} usuarios={usuarios} borrarUsuario={borrarUsuario} seleccionarUsuario={seleccionarUsuario} /* pedirUsuarios={pedirUsuarios} */ fetched={fetched}/>
                 
                 <Footer/>
             </Provider>
