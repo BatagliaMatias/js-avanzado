@@ -1,0 +1,53 @@
+npm i -S react react-dom
+
+1 - La variable React siempre tiene que estar en scope
+2 - Los componentes son la expresion minima de UI y son funciones en mayusucula y tienen retorno de tipo : String - Nodo - React.Component
+
+    let App = () => { return "Hola" }
+
+    function App() { return "Hola" }
+
+    class App {}
+    
+
+3- Para mostrar un componente se usa JSX
+4- Cada componente puede tener su propio estado(state) o recibir parametros(props) y si estos cambian se vuelve a ejecutar el metodo render. Los unicos componentes que tienen estado son los de tipo Class y solo se puede modificar por el mismo componente y todos los componentes reciben props PERO son de read-only
+5 - Los props pueden ser de tipo : String - Boolean(default) - JS Expression y se escriben en formato JSX : 
+
+    Foo({
+        x:"hola",
+        y:true,
+        z:()=>{}
+    })
+
+    <Foo  x="Hola" y z={()=>{}} />
+
+
+
+React Router Dom
+
+BrowserRouter : History API 
+HashRouter : location.hash
+MemoryRouter : para navegadores sin History ni hash
+StaticRouter : SSR - Server Side Rendering 
+
+Cualquier componente de la libreria react-router-dom NO SE PUEDE USAR si no es hijo de algun Router(los anteriores)
+
+
+cada Route puede asociar un componente de vista con los props :
+
+
+component : Componente no en JSX . Al copmonente ya le llegan los props history, location y match
+
+children : fn() y adentro si puede ir JSX. A estos no le llegan directamente. 
+
+render  : fn() y adentro si puede ir JSX. A estos no le llegan directamente. 
+
+
+CONTEXT API : 
+
+state / store : Es una funcion que nos da como retorno un Provider y un Consumer. 
+
+Provider : Es un componente HOC que puede compartir estado a cualquier Consumer hijo en cualquier nivel de jerarquia.
+
+Consumer : Es un componente HOC. Se usa como hijo de un Provider y puede acceder a cualquier estado del Provider en cualquier nivel de jerarquia. 

@@ -14,11 +14,11 @@ class App extends Component {
             mostrar : false,
             nombre : "",
             apellido : "",
-            aumentarContador : this.aumentarContador.bind(this),
-            handleMostrar : this.handleMostrar.bind(this),
-            handleSubmit : this.handleSubmit.bind(this),
-            handleChange : this.handleChange.bind(this)
         }
+        this.aumentarContador = this.aumentarContador.bind(this)
+        this.handleMostrar = this.handleMostrar.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     aumentarContador(){
