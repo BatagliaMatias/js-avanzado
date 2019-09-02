@@ -9,7 +9,6 @@ class App extends Component {
     constructor(){
         super()
         this.state = {
-            links : ["perfil","portfolio","contacto"],
             contador : 0,
             mostrar : false,
             nombre : "",
@@ -30,6 +29,18 @@ class App extends Component {
         }
     }
 
+/*     
+    let state = {
+        usuarios = [false,false,false]
+    }
+
+    test(i){
+        let copia = [...this.state]
+        copia[i] = true
+        this.setState({ usuarios : copia })
+    }
+    
+ */
     pedirUsuarios(){
         
         this.setState({fetching : true})

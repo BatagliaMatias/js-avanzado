@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Consumer } from './api/contexto'
+import {connect} from "react-redux"
 
 class Contador extends Component {
     render() {
@@ -20,4 +21,7 @@ class Contador extends Component {
     }
 }
 
-export default  Contador
+
+let mapStateToProps = store => ({ contador : store.contador })
+
+export default  connect(mapStateToProps)(Contador)
