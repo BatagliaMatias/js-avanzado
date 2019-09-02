@@ -13,6 +13,7 @@ class App extends Component {
             nombre : "",
             apellido : "",
             usuarios : [],
+            //arrayState :[false,false,false],
             usuario : false,
             error : false,
             fetching : false,
@@ -25,6 +26,7 @@ class App extends Component {
             seleccionarUsuario : this.seleccionarUsuario.bind(this),
             pedirUsuarios : this.pedirUsuarios.bind(this)
         }
+        //this.handleState = this.handleState.bind(this)
     }
 
     pedirUsuarios(){
@@ -74,11 +76,23 @@ class App extends Component {
         this.setState({ nombre : this.state.usuarios[indice].nombre , apellido : this.state.usuarios[indice].apellido , usuario : this.state.usuarios[indice] })
     }
 
+    /* handleState(i){
+        let copia = [...this.state.arrayState]
+        copia[i] = !copia[i]
+        //Asincronico
+        this.setState({arrayState:copia})
+        //Aca veo el estado anterior
+        console.log(this.state.arrayState)
+    } */
+
     render(){
+        //console.log("Render:",this.state.arrayState)
         return (
             <Provider value={this.state}>
                 <Header/>
                 <Main/>
+                {this.state.arrayState.toString()}
+                <button onClick={()=>this.handleState(1)}>test</button>
                 <Footer/>
             </Provider>
         )      

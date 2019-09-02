@@ -21,7 +21,6 @@ class Contador extends Component {
 let mapStateToProps = store => ({ contador : store.contador })
 
 let mapDispatchToProps = dispatch => ({
-    //En el prop aumentarContador quiero que haya una combinacion entre(bindActionCreators) la funcion dispatch(la que recibo por parametro de redux) junto con mi acción (la que creamos en nuestro archivo actions)
     aumentarContador : bindActionCreators(aumentarContador,dispatch),
     disminuirContador : bindActionCreators(disminuirContador,dispatch),
     resetearContador : bindActionCreators(resetearContador,dispatch)
