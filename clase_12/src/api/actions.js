@@ -1,0 +1,1 @@
+export let aumentarContador = () => ({type:"CONTADOR_AUMENTAR"})

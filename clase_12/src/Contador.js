@@ -1,21 +1,13 @@
 import React, { Component } from 'react'
-import { Consumer } from './api/contexto'
 import {connect} from "react-redux"
 
 class Contador extends Component {
     render() {
+        let {contador} = this.props
         return (
             <div>
-                <Consumer>
-                {({contador,aumentarContador})=>{
-                    return(
-                        <>
-                        <p>Contador : {contador}</p>
-                        <button  onClick={aumentarContador}>+</button>
-                        </>
-                    )
-                }}
-                </Consumer>
+                <p>Contador : {contador}</p>
+                <button  /* onClick={aumentarContador} */>+</button>
             </div>
         )
     }

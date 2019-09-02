@@ -9,7 +9,6 @@ class App extends Component {
     constructor(){
         super()
         this.state = {
-            contador : 0,
             mostrar : false,
             nombre : "",
             apellido : "",
@@ -19,7 +18,6 @@ class App extends Component {
             fetching : false,
             fetched : false,
             changed : false,
-            aumentarContador : this.aumentarContador.bind(this),
             handleMostrar : this.handleMostrar.bind(this),
             handleSubmit : this.handleSubmit.bind(this),
             handleChange : this.handleChange.bind(this),
@@ -29,18 +27,6 @@ class App extends Component {
         }
     }
 
-/*     
-    let state = {
-        usuarios = [false,false,false]
-    }
-
-    test(i){
-        let copia = [...this.state]
-        copia[i] = true
-        this.setState({ usuarios : copia })
-    }
-    
- */
     pedirUsuarios(){
         
         this.setState({fetching : true})
@@ -65,10 +51,6 @@ class App extends Component {
                 error : err
             })
         })
-    }
-
-    aumentarContador(){
-        this.setState({contador : this.state.contador + 1})
     }
 
     handleMostrar(){
