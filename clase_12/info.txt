@@ -75,3 +75,48 @@ https://nestjs.com/
 https://nextjs.org/
 https://fusionjs.com/
 https://www.meteor.com/
+
+
+REDUX : Es una libreria aparte de React 
+
+npm i -S redux  react-redux [middlewares]
+
+CONCEPTOS DE REACT-REDUX: 
+
+    Provider : Idem Provider en CONTEXT API - Sirve como componente HoC - Seedea todos los componentes hijos con el store, es decir que para poder consumir el store desde cualquier nivel inferior de componentes SI O SI necesitamos este componente. Toma como prop el mismo store(parametro). 
+
+
+CONCEPTOS DE REDUX : 
+
+    Store : Idem this.state . Es un objeto que va a mantener el estado centralizado de nuestra aplicacion. Se crea a partir de una funcion (createStore) que toma como parametro un REDUCER
+
+    Reducer : Es una funcion pura (toma input y sin modificarlo, nos retorna un nuevo output). Esta funcion toma dos parametros : el estado anterior(desde donde se calcula el nuevo) y un ACTION. 
+
+    (anteriorEstado = {} ,action)=>{
+        //Aca voy a calcular cual va a ser el proximo estado de la aplicacion utilizando anteriorEstado
+        switch(action.type){
+            
+            default : 
+                return anteriorEstado
+        }
+    }
+
+    Actions : Es una funcion pura que TIENE que retornar un objeto de manera SINCRONICA el cual se va a pasar automaticamente como el segundo parametro del/de los reducer/s - Es analogo a un callback de evento. 
+
+    ()=>{ return {type:""} }
+
+    ó así : 
+
+    ()=> ({type : ""})
+
+
+CONECTAR UN COMPONENTE CON REDUX : 
+
+Para conectar un componente necesitamos usar la funcion connect. Tambien es un HoC pero se escribe como connect()(Componente)
+
+La funcion connect puede tomar dos parametros : Uno para traer el store y otro para "traer" los actions. Sea lo que sea que vayamos a conectar, al componente le va a llegar como props. Ambos parametros son funciones.  
+
+
+    1) Si el componente solo necesita store : Solo necesitamos un solo parametro y solo necesitamos un import
+
+    2) Si el componente necesita store + actions : necesitamos tres imports y dos parametros
