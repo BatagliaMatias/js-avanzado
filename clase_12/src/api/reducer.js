@@ -14,13 +14,12 @@ let initState = {
 
 let reducer = (prevState=initState,action) => {
     switch(action.type){
-        case "CONTADOR_AUMENTAR":
-            return {
-                //tengo que mantener el estado anterior
-                ...prevState,
-                //pero modifico aquel dato que me dice el action
-                contador : prevState.contador + 1
-            }
+        case "CONTADOR_SUMAR":
+            return {...prevState,contador : prevState.contador + 1}
+        case "CONTADOR_RESTAR":
+            return {...prevState,contador : prevState.contador - 1}
+        case "CONTADOR_RESET":
+            return {...prevState,contador : 0}
         default : 
             return prevState
     }
